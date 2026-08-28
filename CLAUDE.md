@@ -17,6 +17,16 @@ Urutan wajib di awal setiap sesi:
 
 `PRD.md` dibaca kalau kamu harus memutuskan sesuatu yang tidak tertulis di `SPEC.md`.
 
+## 0b. Patokan Service (wajib dibaca sebelum menulis service baru)
+
+Sebelum menulis service baru, baca `server/services/entitlementService.js` dan
+`server/__tests__/unit/entitlementService.test.js`, lalu tiru strukturnya persis:
+
+- Class dengan static method
+- `now` diterima sebagai parameter, bukan `new Date()` di dalam service
+- Throw object bernama (`{ name, message }`), ditangani `errorHandler`
+- Test ditulis dulu, coverage sesuai ambang `TESTING.md §3`
+
 ## 1. Anti-Halusinasi (aturan paling penting)
 
 - **Dilarang menebak isi file.** Selalu baca file dulu sebelum mengedit.

@@ -2,14 +2,19 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "bin/www.js",
   "scripts": {
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:unit": "jest __tests__/unit",
-    "test:integration": "jest __tests__/integration --runInBand",
-    "test:e2e": "jest __tests__/e2e --runInBand",
-    "test:coverage": "jest --coverage"
+    "dev": "node bin/www.js",
+    "start": "node bin/www.js",
+    "test": "NODE_ENV=test jest",
+    "test:watch": "NODE_ENV=test jest --watch",
+    "test:unit": "NODE_ENV=test jest __tests__/unit",
+    "test:integration": "NODE_ENV=test jest __tests__/integration --runInBand",
+    "test:e2e": "NODE_ENV=test jest __tests__/e2e --runInBand",
+    "test:coverage": "NODE_ENV=test jest --coverage",
+    "db:migrate": "sequelize db:migrate",
+    "db:migrate:test": "NODE_ENV=test sequelize db:migrate",
+    "db:migrate:undo": "sequelize db:migrate:undo"
   },
   "keywords": [],
   "author": "",
@@ -17,11 +22,13 @@
   "type": "commonjs",
   "devDependencies": {
     "jest": "^30.5.0",
+    "sequelize-cli": "^6.6.3",
     "supertest": "^7.2.2"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
-    "express": "^5.2.1",
+    "dotenv": "^17.4.2",
+    "express": "^4.21.2",
     "jsonwebtoken": "^9.0.3",
     "node-cron": "^4.6.0",
     "node-telegram-bot-api": "^2.1.0",
