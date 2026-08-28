@@ -1,6 +1,6 @@
 module.exports = {
   testEnvironment: 'node',
-  collectCoverage: true,
+  collectCoverage: false,
   coverageReporters: ['text-summary', 'lcov', 'json-summary'],
   collectCoverageFrom: [
     '**/*.js',
@@ -12,6 +12,7 @@ module.exports = {
     '!config/**',
     '!bin/**',
     '!jest.config.js',
+    '!**/__tests__/**',
   ],
   coverageThreshold: {
     global: { statements: 85, branches: 80, functions: 85, lines: 85 },
@@ -23,6 +24,9 @@ module.exports = {
     },
   },
   setupFilesAfterEnv: ['<rootDir>/__tests__/setup.js'],
+  globalTeardown: '<rootDir>/__tests__/globalTeardown.js',
+  testMatch: ['**/__tests__/**/*.test.js'],
   testTimeout: 15000,
   maxWorkers: 1,
+  forceExit: true,
 };

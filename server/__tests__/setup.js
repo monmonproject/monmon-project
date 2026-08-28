@@ -6,8 +6,4 @@ beforeAll(async () => {
 
 beforeEach(async () => {
   await sequelize.query('TRUNCATE "Categories", "Wallets", "Users" RESTART IDENTITY CASCADE');
-});
-
-afterAll(async () => {
-  await sequelize.close();
-});
+}); 
