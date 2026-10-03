@@ -167,10 +167,10 @@ pemisah ribuan dibuang. Hasil akhir selalu integer.
 
 ## 9. Tech Stack (DIKUNCI — dilarang menambah/mengganti tanpa izin)
 
-- Backend: Node.js 20, Express 4, Sequelize 6, PostgreSQL
+- Backend: Node.js 24, Express 4, Sequelize 6, PostgreSQL
 - Telegram: `node-telegram-bot-api` (mode webhook, bukan polling)
 - Auth: `jsonwebtoken`, `bcryptjs`
-- AI / STT / OCR: panggil HTTP API provider pakai **`fetch` bawaan Node 20**.
+- AI / STT / OCR: panggil HTTP API provider pakai **`fetch` bawaan Node 24**.
   Dilarang menambah SDK apa pun.
 - Cron: `node-cron`
 - State konfirmasi: **`Map` in-memory** dengan TTL manual di
