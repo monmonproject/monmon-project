@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Category.associate = (models) => {
     Category.belongsTo(models.Wallet, { foreignKey: 'WalletId' });
+    Category.hasMany(models.Transaction, { foreignKey: 'CategoryId' });
   };
 
   return Category;
