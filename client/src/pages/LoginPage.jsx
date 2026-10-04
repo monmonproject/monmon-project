@@ -6,7 +6,7 @@ const STORAGE_KEY = 'accessToken';
 
 function LoginPage() {
   const navigate = useNavigate();
-  const [step, setStep] = useState('telegram-id'); // 'telegram-id' | 'otp'
+  const [step, setStep] = useState('telegram-id');
   const [telegramId, setTelegramId] = useState('');
   const [otp, setOtp] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -20,7 +20,7 @@ function LoginPage() {
       return;
     }
     if (!/^\d{5,15}$/.test(telegramId.trim())) {
-      setErrorMessage('Telegram ID harus berupa angka.');
+      setErrorMessage('Telegram ID harus 5–15 digit angka.');
       return;
     }
     setIsLoading(true);
