@@ -213,6 +213,31 @@ AI habis), `500`.
 | GET | `/api/analysis` | trial, member | query: `period=weekly\|monthly` → insight + metrics |
 | POST | `/api/subscriptions/checkout` | semua | buat `pending_payment` + link bayar |
 
+**Pengecualian format response:** endpoint `/api/auth/*` mengembalikan bentuk
+flat tanpa pembungkus `data`, karena token dipakai langsung oleh client:
+
+POST /api/auth/verify-otp → { "access_token": "...", "user": { ... } }
+POST /api/auth/login      → { "access_token": "...", "user": { ... } }
+
+Endpoint lain tetap memakai format standar §3.
+**Kontrak endpoint `/api/auth/*`** (flat, tanpa pembungkus `data`, karena
+token dipakai langsung oleh client — pengecualian dari format standar §3):
+
+POST /api/auth/request-otp
+  body     { "telegramId": 123456789 }
+  response { "message": "Kode OTP dikirim ke Telegram" }
+
+POST /api/auth/verify-otp
+  body     { "telegramId": 123456789, "code": "123456" }
+  response { "access_token": "...", "user": { ... } }
+
+POST /api/auth/login
+  body     { "email": "...", "password": "..." }
+  response { "access_token": "...", "user": { ... } }
+
+`code` dikirim sebagai string, bukan number, supaya angka nol di depan
+tidak hilang.
+
 Tier `free` yang memanggil endpoint mana pun selain `/api/auth/*` dan `/api/me`
 → **403** dengan `requiredTier`.
 

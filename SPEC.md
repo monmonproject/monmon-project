@@ -176,9 +176,9 @@ pemisah ribuan dibuang. Hasil akhir selalu integer.
 - State konfirmasi: **`Map` in-memory** dengan TTL manual di
   `helpers/stateStore.js`. **Bukan** Redis di v1.0 — satu instance dulu.
 - Test: Jest + Supertest
-- Frontend: React 18 + Vite, React Router, Axios
+- Frontend: React 19 + Vite, React Router, Axios
 - Grafik: `recharts` — hanya ini, dan hanya untuk grafik
-- Styling: CSS biasa / CSS Modules — **bukan** Tailwind, **bukan** UI library
+- Styling: CSS biasa / CSS Modules, Tailwind CSS — **bukan** UI library
 - State frontend: React state + Context. **Bukan** Redux/Zustand/React Query di v1
 
 ## 10. Definition of Done (satu task dianggap selesai kalau...)
