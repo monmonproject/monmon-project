@@ -177,6 +177,7 @@ pemisah ribuan dibuang. Hasil akhir selalu integer.
   `helpers/stateStore.js`. **Bukan** Redis di v1.0 — satu instance dulu.
 - Test: Jest + Supertest
 - Frontend: React 19 + Vite, React Router, Axios
+- Test frontend: Vitest + React Testing Library
 - Grafik: `recharts` — hanya ini, dan hanya untuk grafik
 - Styling: CSS biasa / CSS Modules, Tailwind CSS — **bukan** UI library
 - State frontend: React state + Context. **Bukan** Redux/Zustand/React Query di v1
