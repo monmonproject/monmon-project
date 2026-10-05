@@ -19,6 +19,12 @@ module.exports = {
     './services/entitlementService.js': {
       statements: 100, branches: 100, functions: 100, lines: 100,
     },
+    './helpers/money.js': {
+      statements: 100, branches: 100, functions: 100, lines: 100,
+    },
+    './ai/ruleParser.js': {
+      statements: 95, branches: 90, functions: 95, lines: 95,
+    },
     './middlewares/': {
       statements: 90, branches: 85, functions: 90, lines: 90,
     },
