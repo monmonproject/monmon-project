@@ -30,6 +30,7 @@ money-analysis-bot/
 │   │   └── analyzer.js     (metrics → narasi)
 │   ├── services/
 │   │   ├── entitlementService.js   (satu-satunya penentu tier)
+│   │   ├── otpService.js           (buat & verifikasi OTP login dashboard)
 │   │   ├── transactionService.js
 │   │   ├── budgetService.js
 │   │   ├── metricsService.js       (hitung angka, TANPA AI)
