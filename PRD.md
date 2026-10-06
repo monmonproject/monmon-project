@@ -108,7 +108,6 @@ Kalau konversi < 8% setelah 200 user trial, yang dievaluasi duluan adalah
 
 ## 9. Yang Masih Perlu Diputuskan Owner
 
-- [ ] Payment gateway: Midtrans / Xendit / transfer manual + verifikasi admin?
-- [ ] Provider AI, STT, dan OCR — satu vendor multimodal atau spesialis terpisah?
-- [ ] Harga final member (asumsi sekarang Rp 29.000 / 30 hari)
-- [ ] Berapa lama data user `free` disimpan sebelum diarsipkan?
+- [x] Payment gateway: Midtrans
+- [x] Provider AI / STT / OCR: Google Gemini
+
