@@ -8,6 +8,7 @@ const MEMBER_DAYS = 30;
 const CONFIDENCE_THRESHOLD = 0.75;
 const CONFIRMATION_TTL_SECONDS = 300;
 const AI_CALL_TIMEOUT_MS = 20000;
+const JWT_EXPIRES_IN = '7d';
 
 module.exports = {
     TRIAL_DAYS,
@@ -15,4 +16,5 @@ module.exports = {
     CONFIDENCE_THRESHOLD,
     CONFIRMATION_TTL_SECONDS,
     AI_CALL_TIMEOUT_MS,
+    JWT_EXPIRES_IN
 };
