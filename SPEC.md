@@ -170,8 +170,10 @@ pemisah ribuan dibuang. Hasil akhir selalu integer.
 - Backend: Node.js 24, Express 4, Sequelize 6, PostgreSQL
 - Telegram: `node-telegram-bot-api` (mode webhook, bukan polling)
 - Auth: `jsonwebtoken`, `bcryptjs`
-- AI / STT / OCR: panggil HTTP API provider pakai **`fetch` bawaan Node 24**.
-  Dilarang menambah SDK apa pun.
+- AI / STT / OCR: Google Gemini, dipanggil lewat HTTP API pakai `fetch`
+  bawaan Node 24. Dilarang menambah SDK apa pun.
+- Payment: Midtrans, dipanggil lewat HTTP API pakai `fetch`. Dilarang
+  menambah SDK apa pun.
 - Cron: `node-cron`
 - State konfirmasi: **`Map` in-memory** dengan TTL manual di
   `helpers/stateStore.js`. **Bukan** Redis di v1.0 — satu instance dulu.
