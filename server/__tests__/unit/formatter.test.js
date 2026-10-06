@@ -31,4 +31,34 @@ describe('telegram/formatter welcomeMessage', () => {
   it(`tidak lebih dari ${MAX_REPLY_LINES} baris (SPEC.md §7)`, () => {
     expect(welcomeMessage('Budi').split('\n').length).toBeLessThanOrEqual(MAX_REPLY_LINES);
   });
+
+  describe('bergantung pada TRIAL_DAYS, bukan kebetulan cocok', () => {
+    function loadWelcomeMessageWithTrialDays(trialDays) {
+      let isolatedWelcomeMessage;
+      jest.isolateModules(() => {
+        jest.doMock('../../config/constants', () => ({
+          ...jest.requireActual('../../config/constants'),
+          TRIAL_DAYS: trialDays,
+        }));
+        isolatedWelcomeMessage = require('../../telegram/formatter').welcomeMessage;
+      });
+      return isolatedWelcomeMessage;
+    }
+
+    afterEach(() => {
+      jest.dontMock('../../config/constants');
+    });
+
+    it.each([{ trialDays: 14 }, { trialDays: 30 }])('TRIAL_DAYS = $trialDays → pesan menyebut "Trial $trialDays hari"', ({ trialDays }) => {
+      const isolatedWelcomeMessage = loadWelcomeMessageWithTrialDays(trialDays);
+
+      expect(isolatedWelcomeMessage('Budi')).toContain(`Trial ${trialDays} hari`);
+    });
+
+    it('TRIAL_DAYS = 14 → pesan TIDAK lagi menyebut "5 hari"', () => {
+      const isolatedWelcomeMessage = loadWelcomeMessageWithTrialDays(14);
+
+      expect(isolatedWelcomeMessage('Budi')).not.toContain('5 hari');
+    });
+  });
 });
