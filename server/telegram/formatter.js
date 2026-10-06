@@ -1,3 +1,5 @@
+const { TRIAL_DAYS } = require('../config/constants');
+
 function welcomeMessage(name) {
   const greeting = name ? `Halo ${name}!` : 'Halo!';
   return [
@@ -5,7 +7,7 @@ function welcomeMessage(name) {
     '',
     'Selamat datang di Monmon — asisten catat keuangan via Telegram.',
     '',
-    '✅ Trial 5 hari aktif — catat lewat teks, voice, atau foto struk.',
+    `✅ Trial ${TRIAL_DAYS} hari aktif — catat lewat teks, voice, atau foto struk.`,
     '',
     'Contoh: makan siang 35rb',
     'Ketik /bantuan untuk format lengkap.',
